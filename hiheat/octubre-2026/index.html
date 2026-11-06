@@ -445,7 +445,7 @@
   .ide-kpi-sm { font-size:22px !important;white-space:nowrap; }
   #ri-0:checked ~ .ctab-bar label[for="ri-0"],#ri-1:checked ~ .ctab-bar label[for="ri-1"],
   #ri-2:checked ~ .ctab-bar label[for="ri-2"],#ri-3:checked ~ .ctab-bar label[for="ri-3"]{color:var(--accent-dark);border-bottom:2px solid var(--active-line);}
-  #ri-0:checked ~ #panel-ide-cal,#ri-1:checked ~ #panel-ide-piezas,#ri-2:checked ~ #panel-ide-enfoque,#ri-3:checked ~ #panel-ide-backlog{display:block;}
+  #ri-0:checked ~ #panel-ide-cal,#ri-1:checked ~ #panel-ide-piezas,#ri-2:checked ~ #panel-ide-cambios,#ri-3:checked ~ #panel-ide-backlog{display:block;}
   @media (max-width:1080px){ .ide-cal-row { grid-template-columns:1fr;gap:6px; } .ide-grid { grid-template-columns:1fr; } }
 
 
@@ -973,119 +973,155 @@
 <section class="section-block" id="ideacion">
   <div class="section-eyebrow">Ideación · Noviembre</div>
   <div class="section-title">Plan de contenido — Noviembre 2026</div>
-  <div class="section-sub">Seis contenidos propios: tres reels y tres carruseles. El mes abre con prueba social, pone la producción con Jovi Acosta en el centro de la temporada de reuniones y cierra con oferta el Black Friday.</div>
+  <div class="section-sub">Calendario acordado en la reunión del 5 de noviembre. Dos piezas ya en producción, tres aprobadas con pendientes de fecha y locación, y dos que siguen como idea para el cierre del mes.</div>
 
   <div class="kpi-grid kpi-grid-5" style="margin-bottom:26px;">
-    <div class="kpi-card primary"><div class="kpi-label">Contenidos</div><div class="kpi-value">6</div><div class="kpi-qual">3 reels + 3 carruseles</div></div>
-    <div class="kpi-card primary"><div class="kpi-label">Cafeteras</div><div class="kpi-value">4</div><div class="kpi-qual">S7 · H9 · comparativo</div></div>
-    <div class="kpi-card primary"><div class="kpi-label">Del rodaje con Jovi</div><div class="kpi-value">2</div><div class="kpi-qual">una sola producción</div></div>
-    <div class="kpi-card primary"><div class="kpi-label">Con iGlace</div><div class="kpi-value">1</div><div class="kpi-qual">IG18 y mini bar retro</div></div>
-    <div class="kpi-card primary"><div class="kpi-label">Con fecha límite</div><div class="kpi-value ide-kpi-sm">27 nov</div><div class="kpi-qual">Black Friday</div></div>
+    <div class="kpi-card primary"><div class="kpi-label">En producción</div><div class="kpi-value">2</div><div class="kpi-qual">7 y 10 de noviembre</div></div>
+    <div class="kpi-card primary"><div class="kpi-label">Aprobadas</div><div class="kpi-value">3</div><div class="kpi-qual">con pendientes</div></div>
+    <div class="kpi-card primary"><div class="kpi-label">Ideas</div><div class="kpi-value">2</div><div class="kpi-qual">cierre de mes</div></div>
+    <div class="kpi-card primary"><div class="kpi-label">Rodajes</div><div class="kpi-value">2</div><div class="kpi-qual">Jovi · recetas H9</div></div>
+    <div class="kpi-card primary"><div class="kpi-label">Promo S7</div><div class="kpi-value ide-kpi-sm">fin de año</div><div class="kpi-qual">solo la S7</div></div>
   </div>
 
   <input type="radio" name="tg-ide" id="ri-0" class="tabs-radio" checked>
   <input type="radio" name="tg-ide" id="ri-1" class="tabs-radio">
   <input type="radio" name="tg-ide" id="ri-2" class="tabs-radio">
+  <input type="radio" name="tg-ide" id="ri-3" class="tabs-radio">
   <div class="ctab-bar">
     <label class="tab-btn" for="ri-0">Calendario</label>
-    <label class="tab-btn" for="ri-1">Las 6 piezas</label>
-    <label class="tab-btn" for="ri-2">Enfoque del mes</label>
+    <label class="tab-btn" for="ri-1">Las piezas</label>
+    <label class="tab-btn" for="ri-2">Qué cambió en la reunión</label>
+    <label class="tab-btn" for="ri-3">Banco de diciembre</label>
   </div>
 
   <div class="comp-panel" id="panel-ide-cal">
-    <div class="ide-change"><strong>Criterio de fechas:</strong> las piezas de experiencia van en sábado y las de producto entre semana. La semana del 12 al 17 queda libre a propósito: es la ventana de rodaje de la tarde con Jovi, de donde salen las piezas del 21 y del 25. La promo se reserva para el viernes 27, Black Friday.</div>
+    <div class="ide-change"><strong>Cómo quedó el mes:</strong> la promoción de la S7 se adelanta al arranque y sostiene todo noviembre, porque corre hasta fin de año. El bloque central son las dos piezas que salen de la tarde con Jovi. Las recetas de la H9 cambian a coctelería y miran ya hacia diciembre. Las dos últimas quedan como idea, sujetas a cómo avancen las producciones.</div>
     <div class="ide-cal">
-      <div class="ide-cal-row"><div class="ide-date"><small>sáb</small>7 nov</div><div><span class="ide-fmt ide-fmt-reel">Reel</span></div><div class="ide-piece">Testimonio real de la S7: la nota de voz de una clienta<small>Prueba social · abre el mes</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-go">Por producir</span></div>
-      <div class="ide-cal-row"><div class="ide-date"><small>mié</small>11 nov</div><div><span class="ide-fmt ide-fmt-reel">Reel</span></div><div class="ide-piece">3 máquinas de café, una decisión<small>Versión en video del carrusel que marcó 9,49%</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-go">Por producir</span></div>
-      <div class="ide-cal-row"><div class="ide-date"><small>mié</small>18 nov</div><div><span class="ide-fmt ide-fmt-car">Carrusel</span></div><div class="ide-piece">3 recetas con la H9 y cómo prepararlas<small>Formato para guardar</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-go">Por producir</span></div>
-      <div class="ide-cal-row"><div class="ide-date"><small>sáb</small>21 nov</div><div><span class="ide-fmt ide-fmt-reel">Reel</span></div><div class="ide-piece">Tarde entre amigas con Jovi Acosta — pizza, cócteles y café<small>La pieza de alcance del mes · con iGlace</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-go">Por producir</span></div>
-      <div class="ide-cal-row"><div class="ide-date"><small>mié</small>25 nov</div><div><span class="ide-fmt ide-fmt-car">Carrusel</span></div><div class="ide-piece">Un café distinto para cada amiga, con una sola máquina<small>Del mismo rodaje · demostración de versatilidad</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-go">Por producir</span></div>
-      <div class="ide-cal-row"><div class="ide-date"><small>vie</small>27 nov</div><div><span class="ide-fmt ide-fmt-car">Carrusel</span></div><div class="ide-piece">Promo S7 + juego de tazas de regalo<small>Black Friday · fecha límite</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-go">Por producir</span></div>
+      <div class="ide-cal-row"><div class="ide-date"><small>sáb</small>7 nov</div><div><span class="ide-fmt ide-fmt-car">Carrusel</span></div><div class="ide-piece">Promo S7 + juego de tazas de regalo<small>Adelantada: arranca el mes, no lo cierra</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-today">En producción</span></div>
+      <div class="ide-cal-row"><div class="ide-date"><small>mar</small>10 nov</div><div><span class="ide-fmt ide-fmt-reel">Reel</span></div><div class="ide-piece">Testimonio real de la S7 en nota de voz<small>Voz guayaca · primera pieza a pautar</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-today">En producción</span></div>
+      <div class="ide-cal-row"><div class="ide-date"><small>sáb</small>14 nov</div><div><span class="ide-fmt ide-fmt-reel">Reel</span></div><div class="ide-piece">Tarde entre amigas con Jovi Acosta<small>Pizza, cócteles y café · con iGlace</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-go">Aprobado</span></div>
+      <div class="ide-cal-row"><div class="ide-date"><small>mié</small>18 nov</div><div><span class="ide-fmt ide-fmt-car">Carrusel</span></div><div class="ide-piece">Los equipos en un espacio real: fotos de la tarde<small>Del mismo rodaje</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-go">Aprobado</span></div>
+      <div class="ide-cal-row"><div class="ide-date"><small>sáb</small>21 nov</div><div><span class="ide-fmt ide-fmt-reel">Reel</span></div><div class="ide-piece">Coctelería con la H9: carajillo y cóctel de café<small>Cambia de recetas a coctelería</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-go">Aprobado</span></div>
+      <div class="ide-cal-row"><div class="ide-date"><small>mié</small>25 nov</div><div><span class="ide-fmt ide-fmt-reel">Reel</span></div><div class="ide-piece">Jovi: cafetera vieja vs. cafetera nueva<small>Nueva · sale de la producción solo con Jovi</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-hold">Idea</span></div>
+      <div class="ide-cal-row"><div class="ide-date"><small>—</small>fin de mes</div><div><span class="ide-fmt ide-fmt-reel">Reel</span></div><div class="ide-piece">3 máquinas de café, una decisión<small>Queda tentativa · puede sustituirse</small></div><div class="ide-role">&nbsp;</div><span class="ide-chip ide-chip-hold">Idea</span></div>
     </div>
   </div>
 
   <div class="comp-panel" id="panel-ide-piezas">
-    <div class="ide-panel-intro">Cada pieza con su objetivo, la justificación apoyada en los datos del periodo y el desarrollo propuesto.</div>
+    <div class="ide-panel-intro">Cada pieza con su objetivo, lo que se definió en la reunión y el desarrollo propuesto.</div>
     <div class="rec-card">
-      <div class="ide-card-top"><span class="ide-num">1</span><span class="ide-fmt ide-fmt-reel">Reel</span><span class="ide-card-title">Testimonio real de la S7: la nota de voz de una clienta</span><span class="ide-chip ide-chip-go">Sábado 7 nov</span></div>
+      <div class="ide-card-top"><span class="ide-num">1</span><span class="ide-fmt ide-fmt-car">Carrusel</span><span class="ide-card-title">Promo S7 + juego de tazas de regalo</span><span class="ide-chip ide-chip-today">En producción</span><span class="data-chip">Sábado 7 nov</span></div>
       <div class="ide-grid">
-        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Abrir el mes con prueba social pura: una clienta real contando, con su propia voz, que la S7 le va excelente, que ya domina varias recetas y que además le llegó con un juego de tazas de regalo.</p></div>
-        <div class="ide-block"><div class="ide-block-l">Justificación</div><p>Es el tipo de contenido que esta cuenta lleva tres meses premiando: la pieza con una persona real usando el producto lideró interacciones en agosto (7,58%) y en septiembre (7,09%), y los dos carruseles de decisión de compra de octubre marcaron 10,27% y 9,49%. El testimonio junta las dos cosas —persona real + argumento de compra— y además responde la objeción silenciosa de un equipo que volvió al catálogo hace dos meses: ¿de verdad funciona? Añade un segundo beneficio: prepara el terreno para la promo del 27, porque menciona las tazas antes de que sean una oferta.</p></div>
-        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Reel de 25-30 s construido sobre el audio original de la clienta, sin locución de marca. Abre con la nota de voz sonando sobre el plano de la máquina encendida y el rótulo «Esto nos llegó de una clienta» (que es el gancho: nadie se salta un audio ajeno). Mientras habla, van las imágenes: la S7 en su cocina real, el espresso saliendo, dos o tres de las recetas que ella menciona, y las tazas desempacadas. Subtítulos obligatorios, porque el audio es el contenido. Cierre con el CTA que ya funcionó en septiembre: «Comenta QUIERO LA S7 y te escribimos». Si la clienta autoriza, mostrar su nombre de pila y ciudad — eso es lo que separa un testimonio de un montaje.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Comunicar la promoción vigente —cafetera S7 con juego de tazas de regalo— con el arte propio de la campaña, que se está produciendo esta misma semana.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Qué se definió</div><p>En la reunión se adelantó: estaba planificada para el cierre de mes y pasa al arranque. La promoción se mantiene <strong>hasta fin de año</strong> para agotar el stock disponible y aplica <strong>solo a la S7</strong>, que es el modelo con más inventario. Deja de ser una pieza de Black Friday para convertirse en la comunicación comercial que sostiene todo el mes, y es la que da contexto al testimonio del día 10.</p></div>
+        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Carrusel de 4-5 láminas con el arte de la promoción: portada con la S7 y las tazas en el mismo plano; qué incluye; la vigencia; dónde comprarla; cierre pensado para reenviar. <em>Pendiente de la reunión:</em> enviar el material gráfico de la promoción al equipo de ViCOMER apenas esté listo, para que puedan moverlo por su lado.</p></div>
       </div>
     </div>
     <div class="rec-card">
-      <div class="ide-card-top"><span class="ide-num">2</span><span class="ide-fmt ide-fmt-reel">Reel</span><span class="ide-card-title">3 máquinas de café, una decisión</span><span class="ide-chip ide-chip-go">Miércoles 11 nov</span></div>
+      <div class="ide-card-top"><span class="ide-num">2</span><span class="ide-fmt ide-fmt-reel">Reel</span><span class="ide-card-title">Testimonio real de la S7 en nota de voz</span><span class="ide-chip ide-chip-today">En producción</span><span class="data-chip">Martes 10 nov</span></div>
       <div class="ide-grid">
-        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Llevar a video el comparativo entre S7, H7 y H9: qué hace distinta a cada una y para quién es cada una, cerrando con la pregunta directa de cuál elegiría el espectador.</p></div>
-        <div class="ide-block"><div class="ide-block-l">Justificación</div><p>El carrusel con este mismo tema (16 oct) fue la segunda mejor pieza del periodo: 9,49% de engagement, 35 interacciones y 6 comentarios — la que más conversación generó. Pasarlo a reel ataca justo la debilidad del mes: el carrusel convierte pero no circula (369 de alcance), mientras los reels son los que llegan lejos. Además la campaña de mensajes está pagando $0,55 por conversación, 34% más que el corte anterior: necesita creatividad nueva, y esta es la pieza que ya demostró que resuelve la duda de compra.</p></div>
-        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Reel de 30 s en tres bloques de ocho segundos, una máquina por bloque, siempre con el mismo encuadre para que la comparación se lea sola: S7 (compacta, molino integrado, varilla manual — para quien disfruta el ritual), H7 (espumado automático, 10 bebidas — para la rutina diaria), H9 (pantalla de 7", 19 bebidas, dos tazas a la vez — para quien recibe visitas). Un rótulo fijo por máquina con el perfil de usuario, no con la ficha técnica. Cierre a tres cuadros con la pregunta «¿Cuál va contigo?» y CTA de comentar la letra. Subir esta pieza como creatividad de la campaña de mensajes la misma semana.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Contar la promoción desde la experiencia de una clienta y no desde la marca: una amiga de Guayaquil graba una nota de voz como si hubiera comprado la S7 — lo fácil que fue instalarla, que ya hace capuchinos, y que además le llegaron las tazas de regalo.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Qué se definió</div><p>Confirmada en la reunión como la idea principal del mes para la S7 y <strong>la primera pieza que se pone en pauta</strong>. El criterio explícito fue no sonar a publicidad: en lugar de «compra y te llegan unas tazas», el beneficio aparece dentro del relato de alguien que ya lo vivió. Se eligió a propósito una voz guayaca, distinta del acento serrano, para que suene a persona real y no a locución. Los datos lo respaldan: la pieza con una persona real usando el producto lleva tres meses liderando interacciones en esta cuenta.</p></div>
+        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Reel de 25-30 s montado sobre el audio original, sin locución de marca. Abre con la nota de voz sonando sobre el plano de la máquina y un rótulo del tipo «Esto nos llegó de una clienta». Mientras habla, van las imágenes: material de archivo de la S7 y las tomas nuevas de la caja de tazas que se produce esta semana. Subtítulos obligatorios. Cierre con el CTA que ya funcionó: «Comenta QUIERO LA S7 y te escribimos».</p></div>
       </div>
     </div>
     <div class="rec-card">
-      <div class="ide-card-top"><span class="ide-num">3</span><span class="ide-fmt ide-fmt-car">Carrusel</span><span class="ide-card-title">3 recetas con la H9 y cómo prepararlas</span><span class="ide-chip ide-chip-go">Miércoles 18 nov</span></div>
+      <div class="ide-card-top"><span class="ide-num">3</span><span class="ide-fmt ide-fmt-reel">Reel</span><span class="ide-card-title">Tarde entre amigas con Jovi Acosta — pizza, cócteles y café</span><span class="ide-chip ide-chip-go">Aprobado</span><span class="data-chip">Sábado 14 nov</span></div>
       <div class="ide-grid">
-        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Mostrar que la H9 no es una máquina de un solo café: tres recetas concretas, con sus pasos, para que la pieza se guarde y se vuelva a abrir en la cocina.</p></div>
-        <div class="ide-block"><div class="ide-block-l">Justificación</div><p>Los guardados llevan dos cortes planos (23 este periodo, 22 el anterior) y es la métrica que mide si el contenido sirve para algo después de verlo. El formato receta es el que los recupera. Por otro lado, la H9 se ha comunicado siempre desde la ficha —19 bebidas, la pantalla— y su último reel (4 nov) se quedó en 261 vistas: el equipo más caro del catálogo es el que menos se ha mostrado en uso. Tres recetas resuelven eso y dan argumento para justificar el precio frente a la H7.</p></div>
-        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Carrusel de 8 láminas: portada «3 recetas que puedes hacer hoy con la H9»; luego tres bloques de dos láminas por receta — una con la foto del resultado y el nombre, otra con los pasos numerados y el ajuste exacto de la máquina (volumen en ml, temperatura, qué botón). Sugerencia de recetas por temporada: un latte especiado para noviembre, un affogato para las reuniones y un americano doble para la mañana. Lámina final: «Guarda este post para tu próxima visita» + dónde comprarla. El texto de cada paso tiene que poder leerse sin sonido y sin contexto: la pieza va a reabrirse semanas después.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Producir la tarde entre amigas de Jovi Acosta: «me cansé de las típicas cenas navideñas, quiero hacer algo diferente con mis amigas — una tarde de pizza, cócteles y café», con los equipos de HiHeat e iGlace conviviendo en una situación real.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Qué se definió</div><p>Aprobada en la reunión con tres precisiones importantes. Primera: <strong>se parte en dos producciones</strong> — el día con las amigas (más lento de coordinar, porque hay que esperar a que lleguen) y otro día solo con Jovi para los videos rápidos. Segunda: <strong>el horno de pizza debe aparecer</strong> aunque hoy no haya stock, porque ese material se reutiliza cuando vuelva; se dijo expresamente que desaprovechar la producción para hacer solo cócteles y café sería quedarse corto. Tercera: el objetivo real no es noviembre, es <strong>tener banco de contenido para diciembre y comienzos de enero</strong>.</p></div>
+        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Reel de 40-50 s narrado por Jovi en primera persona, como idea suya. Equipos en escena: la IG18 y el mini bar retro de iGlace, la H9 que Jovi ya tiene en casa, y el horno de pizza. Ningún equipo se presenta: todos aparecen trabajando. <em>Pendiente:</em> definir la locación — se barajaron la casa de Jovi y <strong>El Viejo Almacén</strong> (la familia de Jovi es la dueña), que abre la puerta a una estética de muebles antiguos muy aprovechable para diciembre. Publicar en colaboración con el perfil de Jovi y con iGlace. Las producciones pueden arrancar la próxima semana.</p></div>
       </div>
     </div>
     <div class="rec-card">
-      <div class="ide-card-top"><span class="ide-num">4</span><span class="ide-fmt ide-fmt-reel">Reel</span><span class="ide-card-title">Tarde entre amigas con Jovi Acosta — pizza, cócteles y café</span><span class="ide-chip ide-chip-go">Sábado 21 nov</span></div>
+      <div class="ide-card-top"><span class="ide-num">4</span><span class="ide-fmt ide-fmt-car">Carrusel</span><span class="ide-card-title">Los equipos en un espacio real: fotos de la tarde entre amigas</span><span class="ide-chip ide-chip-go">Aprobado</span><span class="data-chip">Miércoles 18 nov</span></div>
       <div class="ide-grid">
-        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Lanzar la producción con Jovi Acosta como la pieza de temporada: «llegan los meses más movidos en eventos y reuniones, y esta vez quise hacer algo distinto» — una tarde con sus mejores amigas que empieza con pizza, sigue con cócteles y termina con café, con los equipos de HiHeat e iGlace (IG18 y el mini bar retro) integrados con naturalidad.</p></div>
-        <div class="ide-block"><div class="ide-block-l">Justificación</div><p>Es la producción que lleva desde septiembre planificada como banco de contenido para el cierre de año, y noviembre es su momento exacto: la temporada de reuniones empieza. Los datos respaldan la apuesta: el contenido de activación con aliado es lo único que abre audiencia nueva en esta cuenta — el reel del espresso martini con iGlace se llevó el 41% del alcance de todo el periodo (857 personas), el del Día del Socio el 44% del suyo y el del canje de agosto 3.423. Con 1.931 seguidores y 68% de audiencia masculina de 35 a 44 años, el ángulo de anfitrión —recibir bien en casa— es el que conecta con quien ya tiene la cocina montada.</p></div>
-        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Reel de 40-50 s narrado por Jovi en primera persona, como idea suya y no como anuncio: arranca con ella contando el plan («llegan los meses más movidos…»), sigue con la llegada de las amigas, la pizza saliendo del horno, los cócteles con hielo de la IG18 y el mini bar retro, y cierra con el café de sobremesa, que es el momento HiHeat. Regla de producción: ningún equipo se presenta, todos aparecen trabajando. Grabar en vertical pensando en que de este mismo rodaje salen al menos cuatro piezas más (el carrusel del 25, clips por producto y material de eventos para diciembre). Publicar en colaboración con el perfil de Jovi y con iGlace para sumar sus audiencias.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Sacar del mismo rodaje un carrusel fotográfico que muestre los equipos funcionando en un espacio real y en una situación real, no en set de catálogo.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Qué se definió</div><p>Aprobada en la reunión como derivado directo de la producción con Jovi — el argumento fue justamente ese: mostrar los equipos «en un espacio real y en una situación real». Cumple dos funciones con un solo día de grabación: el reel del 14 trae alcance y el carrusel del 18 trae interacción, que es exactamente como se comportan los dos formatos en esta cuenta (los carruseles de octubre marcaron 10,27% y 9,49% de engagement; los reels, el 41% del alcance del periodo en una sola pieza).</p></div>
+        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Carrusel de 6-7 láminas, fotografía real de la tarde: la mesa puesta con todo funcionando, el horno en acción, los cócteles con hielo de la IG18, el café de sobremesa, el grupo disfrutando, y cierre con la invitación a recibir así en casa esta temporada. Mantener la luz y el ambiente de la tarde, no la estética de producto.</p></div>
       </div>
     </div>
     <div class="rec-card">
-      <div class="ide-card-top"><span class="ide-num">5</span><span class="ide-fmt ide-fmt-car">Carrusel</span><span class="ide-card-title">Un café distinto para cada amiga, con una sola máquina</span><span class="ide-chip ide-chip-go">Miércoles 25 nov</span></div>
+      <div class="ide-card-top"><span class="ide-num">5</span><span class="ide-fmt ide-fmt-reel">Reel</span><span class="ide-card-title">Coctelería con la H9: carajillo y un cóctel de café</span><span class="ide-chip ide-chip-go">Aprobado</span><span class="data-chip">Sábado 21 nov</span></div>
       <div class="ide-grid">
-        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Cerrar la narrativa del evento desde el ángulo de producto: cada invitada pidió algo distinto y la misma máquina lo resolvió — espresso, capuchino, latte, americano — sin que nadie tuviera que ser barista.</p></div>
-        <div class="ide-block"><div class="ide-block-l">Justificación</div><p>Es el derivado natural del rodaje del 21 y cumple dos funciones a la vez: mantiene viva la historia una semana más sin producción nueva, y traduce la fiesta en un argumento de compra. El patrón de la cuenta es claro: los carruseles con gente real usando el producto son los que más interacción generan (10,27% y 9,49% en octubre, 7,09% en septiembre), mientras que los reels de evento son los que más alcance traen. Publicar los dos del mismo rodaje cubre las dos métricas con un solo día de grabación.</p></div>
-        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Carrusel de 6-7 láminas, todo fotografía real del evento: portada con el grupo y la bandeja de cafés servidos; una lámina por amiga con su taza y el nombre de la preparación en grande («Para Ana, un capuchino»); una lámina con la máquina en el centro de la mesa y el texto que sostiene la idea —una sola máquina, cuatro pedidos distintos—; cierre con la invitación a recibir así en casa esta temporada y el CTA de cotizar. Mantener la estética de la tarde (luz cálida, mesa puesta), no la de catálogo.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Demostrar de qué es capaz la H9 más allá del capuchino: ver salir el latte doble de la máquina y preparar dos recetas de coctelería con café — un carajillo y un cóctel con tequila y café.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Qué se definió</div><p>La idea original eran «3 recetas con la H9» y en la reunión cambió de concepto: pasa a <strong>coctelería con café</strong>, y se descartó expresamente el espresso martini por repetitivo — ya se hizo con la H7 en octubre. El razonamiento fue que decir que la máquina hace latte doble no vale nada si no se ve salir de la máquina. El destino del material también se definió: estas recetas se empiezan a sacar <strong>pensando en diciembre</strong> — la cena navideña, el brindis, el carajillo de sobremesa.</p></div>
+        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Reel de recetas con sonido real y sin locución: el latte doble saliendo de la máquina, luego las dos preparaciones paso a paso con las medidas rotuladas. <em>Pendientes de la reunión:</em> cerrar el concepto final, la fecha y la ubicación — la opción sobre la mesa es el departamento de Juan en Zaragoza, donde la H9 ya está instalada y hay shakers y jiggers disponibles. Se descartó grabar en la oficina para no interrumpir al equipo.</p></div>
       </div>
     </div>
     <div class="rec-card">
-      <div class="ide-card-top"><span class="ide-num">6</span><span class="ide-fmt ide-fmt-car">Carrusel</span><span class="ide-card-title">Promo S7 + juego de tazas de regalo</span><span class="ide-chip ide-chip-go">Viernes 27 nov · Black Friday</span></div>
+      <div class="ide-card-top"><span class="ide-num">6</span><span class="ide-fmt ide-fmt-reel">Reel</span><span class="ide-card-title">Jovi: cafetera vieja vs. cafetera nueva</span><span class="ide-chip ide-chip-hold">Idea</span><span class="data-chip">Miércoles 25 nov</span></div>
       <div class="ide-grid">
-        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Convertir en oferta con fecha lo que el mes entero estuvo construyendo: la S7 con un juego de tazas de regalo, comunicado el día de mayor intención de compra del año.</p></div>
-        <div class="ide-block"><div class="ide-block-l">Justificación</div><p>Es la única pieza del mes con fecha límite, y esa es precisamente la palanca que esta cuenta tiene medida: el reel del canje con Sukasa de agosto —el único con cierre de promoción— se llevó 21 de los 34 compartidos del mes, mientras el reel del Día del Socio, mismo aliado pero sin fecha, se quedó en 5. En este periodo los compartidos bajaron a 16 y ninguna pieza llevaba oferta. Además cierra el círculo del mes: la clienta del día 7 ya contó que sus tazas llegaron de regalo, así que el 27 la promesa no suena a invento publicitario sino a algo que ya pasó.</p></div>
-        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Carrusel corto y directo, 4-5 láminas: portada con la S7 y las tazas en el mismo plano y la fecha visible desde el primer segundo («Solo hoy» o la vigencia real); una lámina con lo que incluye; una con el testimonio de la clienta del 7 de noviembre recuperado como captura o cita; una con dónde comprarla; cierre con una lámina pensada para reenviar — «Mándaselo a quien lleva meses diciendo que va a comprar una cafetera». Si hay inventario limitado, decirlo: es lo que convierte el interés en acción el mismo día.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Contraste en doble situación: Jovi apurada peleando con una cafetera vieja, frente a Jovi tranquila con la máquina nueva — el mismo argumento de comodidad, contado con humor.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Qué se definió</div><p>Idea nueva que salió en la reunión y que puede <strong>sustituir al reel de las tres máquinas</strong>. Sale de la segunda producción, la del día solo con Jovi, que es la rápida de coordinar. Es el tipo de pieza que esta cuenta no ha probado —producto contado desde una situación cotidiana con humor— y encaja con el perfil de la audiencia: 68% hombres de 35 a 44 años, que son quienes ya tienen la cocina montada.</p></div>
+        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Reel corto de contraste, 20-25 s, misma escena rodada dos veces. Queda como idea hasta confirmar la disponibilidad de Jovi y la fecha de esa segunda producción. Si se produce, ocupa el lugar del reel de las tres máquinas en el calendario.</p></div>
       </div>
     </div>
-  </div>
-
-  <div class="comp-panel" id="panel-ide-enfoque">
-    <div class="ide-panel-intro">Seis criterios que ordenan el mes.</div>
     <div class="rec-card">
-      <div class="ide-card-top"><span class="ide-card-title">Enfoque estratégico de noviembre</span></div>
-      <ul class="ide-list">
-        <li><strong>Arrancar con prueba social y cerrar con oferta:</strong> el testimonio del 7 instala la credibilidad y la promo del 27 la cobra.</li>
-        <li><strong>Una sola producción, tres piezas:</strong> del rodaje con Jovi salen el reel del 21, el carrusel del 25 y material de eventos para diciembre.</li>
-        <li><strong>Recuperar alcance con aliados:</strong> es lo único que ha abierto audiencia nueva — 857 personas en una sola pieza este periodo, el 41% del total.</li>
-        <li><strong>Alimentar la campaña de mensajes con creatividades nuevas:</strong> el costo por conversación subió a $0,55 y el comparativo de máquinas ya demostró que resuelve la duda de compra.</li>
-        <li><strong>Recuperar los guardados:</strong> llevan dos cortes planos en 22-23; el carrusel de recetas es el formato que los mueve.</li>
-        <li><strong>Volver a tener una pieza con fecha:</strong> en todo el periodo no hubo ninguna, y los compartidos cayeron a 16.</li>
-      </ul>
-    </div>
-    <div class="rec-card">
-      <div class="ide-card-top"><span class="ide-fmt ide-fmt-prod">Producción</span><span class="ide-card-title">La tarde con Jovi Acosta rinde más de un mes</span></div>
+      <div class="ide-card-top"><span class="ide-num">7</span><span class="ide-fmt ide-fmt-reel">Reel</span><span class="ide-card-title">3 máquinas de café, una decisión</span><span class="ide-chip ide-chip-hold">Idea</span><span class="data-chip">Sin fecha · fin de mes</span></div>
       <div class="ide-grid">
-        <div class="ide-block"><div class="ide-block-l">Qué se graba</div><p>Una sola tarde: pizza en el horno, cócteles con hielo de la IG18 y el mini bar retro de iGlace, y el café de sobremesa con la máquina HiHeat. Jovi narra el plan como idea suya, no como anuncio.</p></div>
-        <div class="ide-block"><div class="ide-block-l">Qué sale de ahí</div><p>El reel del 21, el carrusel del 25, clips sueltos por producto y fotografía de evento para diciembre. Planificar el plan de tomas pensando en los cuatro usos desde el primer momento, no recortando después.</p></div>
-        <div class="ide-block full"><div class="ide-block-l">Por qué ahora</div><p>La producción estaba prevista desde septiembre como banco de contenido para el cierre de año y noviembre es su ventana natural: arranca la temporada de reuniones, que es exactamente el argumento del guion. Publicar en colaboración con el perfil de Jovi y con iGlace para sumar las tres audiencias en una misma pieza.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Objetivo</div><p>Mostrar S7, H7 y H9 lado a lado con el ángulo de temporada: «estas son las tres máquinas que tenemos, perfectas para regalo en esta época», con el aclarado de que la promoción de tazas aplica solo a la S7.</p></div>
+        <div class="ide-block"><div class="ide-block-l">Qué se definió</div><p>Se mantiene como <strong>idea tentativa</strong>: en la reunión se dijo que puede cambiarse o sustituirse por lo que salga de la producción con Jovi. El argumento sigue siendo bueno —sirve como material de pauta y el carrusel con este mismo tema marcó 9,49% de engagement en octubre— pero no tiene fecha comprometida y depende de cómo rinda el calendario con las producciones.</p></div>
+        <div class="ide-block full"><div class="ide-block-l">Desarrollo</div><p>Si se ejecuta: reel de 30 s, tres bloques de ocho segundos, una máquina por bloque con el mismo encuadre, rotulando el perfil de usuario de cada una y no la ficha técnica. Cierre con la pregunta «¿Cuál regalas?» y la aclaración de que la promoción de tazas es solo para la S7.</p></div>
       </div>
     </div>
   </div>
 
-  <div class="subsection-label" style="margin-top:24px;">El plan, leído con los datos del periodo</div>
+  <div class="comp-panel" id="panel-ide-cambios">
+    <div class="ide-panel-intro">Diferencias entre el plan que traíamos y lo que se acordó el 5 de noviembre.</div>
+    <div class="rec-card">
+      <div class="ide-card-top"><span class="ide-card-title">Promo S7 + tazas</span><span class="ide-chip ide-chip-go">Se adelanta del 27 al 7 de noviembre</span></div>
+      <div class="ide-block"><p>La promoción <strong>se mantiene hasta fin de año</strong> para agotar stock y aplica <strong>solo a la S7</strong>. Deja de tratarse como una pieza puntual de Black Friday: es la comunicación comercial que sostiene el mes.</p></div>
+    </div>
+    <div class="rec-card">
+      <div class="ide-card-top"><span class="ide-card-title">Testimonio de la S7</span><span class="ide-chip ide-chip-go">Confirmado y puesto en pauta</span></div>
+      <div class="ide-block"><p>Se definió la voz —una clienta de Guayaquil, acento guayaco— y se confirmó que es la primera pieza que entra en pauta. El material de la caja de tazas se produce esta semana.</p></div>
+    </div>
+    <div class="rec-card">
+      <div class="ide-card-top"><span class="ide-card-title">Producción con Jovi</span><span class="ide-chip ide-chip-go">Se parte en dos rodajes</span></div>
+      <div class="ide-block"><p>Uno con las amigas (lento de coordinar) y otro solo con Jovi para los videos rápidos. <strong>El horno de pizza entra igual</strong>, aunque no haya stock, para reutilizar el material cuando vuelva. Locación por definir: casa de Jovi o El Viejo Almacén.</p></div>
+    </div>
+    <div class="rec-card">
+      <div class="ide-card-top"><span class="ide-card-title">Recetas con la H9</span><span class="ide-chip ide-chip-go">Cambia de recetas a coctelería</span></div>
+      <div class="ide-block"><p>Carajillo y un cóctel con tequila y café. <strong>Se descarta el espresso martini</strong> por repetitivo: ya se hizo con la H7 en octubre. Posible locación: el departamento de Juan, en Zaragoza, donde la H9 ya está instalada.</p></div>
+    </div>
+    <div class="rec-card">
+      <div class="ide-card-top"><span class="ide-card-title">3 máquinas, una decisión</span><span class="ide-chip ide-chip-hold">Baja a idea tentativa</span></div>
+      <div class="ide-block"><p>Puede ser sustituida por el reel de Jovi con la cafetera vieja frente a la nueva. Si se ejecuta, se le suma el ángulo de regalo de temporada.</p></div>
+    </div>
+    <div class="rec-card">
+      <div class="ide-card-top"><span class="ide-card-title">Black Friday</span><span class="ide-chip ide-chip-off">Sin campaña confirmada</span></div>
+      <div class="ide-block"><p>No se confirmó una campaña específica para Black Friday ni para los puntos de venta: falta la información promocional de las tiendas. La promo de la S7 cubre el mes por su cuenta.</p></div>
+    </div>
+  </div>
+
+  <div class="comp-panel" id="panel-ide-backlog">
+    <div class="ide-panel-intro">Lo que se graba en noviembre pero se publica después, y lo que queda en pausa.</div>
+    <div class="rec-card">
+      <div class="ide-card-top"><span class="ide-card-title">Pieza navideña con Jovi</span><span class="ide-chip ide-chip-hold">Banco de diciembre</span><span class="data-chip">diciembre</span></div>
+      <div class="ide-block"><p>Jovi con el árbol de Navidad y la máquina como regalo. Sale de la segunda producción, la del día solo con ella.</p></div>
+    </div>
+    <div class="rec-card">
+      <div class="ide-card-top"><span class="ide-card-title">El Viejo Almacén</span><span class="ide-chip ide-chip-hold">Banco de diciembre</span><span class="data-chip">diciembre</span></div>
+      <div class="ide-block"><p>La S7 encendida entre los muebles antiguos del almacén, con sonido navideño y sin personas en cuadro — solo música y producto. La familia de Jovi es la dueña del local.</p></div>
+    </div>
+    <div class="rec-card">
+      <div class="ide-card-top"><span class="ide-card-title">Recetas de coctelería para la cena navideña</span><span class="ide-chip ide-chip-hold">Banco de diciembre</span><span class="data-chip">diciembre</span></div>
+      <div class="ide-block"><p>El mismo rodaje de la H9 alimenta diciembre: el carajillo de sobremesa y el brindis como ángulo de temporada.</p></div>
+    </div>
+    <div class="rec-card">
+      <div class="ide-card-top"><span class="ide-card-title">Horno de pizza</span><span class="ide-chip ide-chip-off">En pausa comercial</span><span class="data-chip">cuando llegue stock</span></div>
+      <div class="ide-block"><p>Sin stock, la comunicación se concentró en cafeteras — y esa es la razón de fondo de la caída de alcance del periodo. El material que se grabe con Jovi queda listo para el regreso del equipo.</p></div>
+    </div>
+  </div>
+
+  <div class="subsection-label" style="margin-top:24px;">Lectura del plan</div>
   <div class="insights-box insights-box-ide"><ul>
-    <li><strong>Cuatro de las seis piezas hablan de cafeteras</strong> y tres de ellas empujan directo a la conversación comercial: es el relato que sostiene la campaña de mensajes, que este periodo generó 1.150 conversaciones.</li>
-    <li><strong>El reel con Jovi es la apuesta de alcance del mes.</strong> El contenido de estudio promedió 420 personas por pieza; las piezas con aliado llevan tres meses seguidos siendo lo más lejos que llega la marca (857, 1.735 y 3.423 de alcance).</li>
-    <li><strong>El comparativo de máquinas pasa de carrusel a reel</strong> porque el formato era el límite, no el tema: 9,49% de engagement con solo 369 de alcance. En reel, el mismo argumento debería llegar al doble de gente.</li>
-    <li><strong>La promo del 27 recupera la palanca que falta.</strong> Con fecha límite, agosto hizo 21 compartidos en una sola pieza; sin ella, el mejor mes posterior se quedó en 5. Este periodo cerró en 16 compartidos entre cinco publicaciones.</li>
-    <li><strong>Para Facebook, solo los tres reels.</strong> En el periodo medido los reels promediaron 148 impresiones y los carruseles 193 — pero el carrusel del 29 de octubre se quedó en 69 sin una sola reacción, y el reel del 13 llegó a 328.</li>
+    <li><strong>Dos piezas ya están en producción</strong> (la promo del 7 y el testimonio del 10) y tres quedaron aprobadas con pendientes concretos de fecha y locación. Solo dos siguen como idea.</li>
+    <li><strong>El mes se ordena alrededor de la promoción de la S7</strong>, que corre hasta fin de año: el carrusel la anuncia, el testimonio la cuenta desde la experiencia de una clienta y el reel de las tres máquinas —si se ejecuta— la sitúa en el marco de los regalos de temporada.</li>
+    <li><strong>Una sola tarde de rodaje con Jovi produce dos piezas de noviembre y el banco de diciembre.</strong> Es la apuesta de alcance del mes: las piezas con aliado llevan tres meses seguidos siendo lo más lejos que llega la marca (857, 1.735 y 3.423 personas).</li>
+    <li><strong>La caída de alcance del periodo tiene una causa de negocio, no editorial:</strong> sin stock de horno de pizza, la comunicación se concentró en cafeteras, que es contenido de decisión de compra — convierte muy bien (6,83% de engagement, el mejor registro) pero circula menos.</li>
+    <li><strong>Queda una decisión abierta:</strong> si la producción solo con Jovi se concreta, el reel de la cafetera vieja frente a la nueva ocupa el lugar del de las tres máquinas. Conviene resolverlo antes del 20 para no dejar el cierre de mes sin pieza.</li>
   </ul></div>
 </section>
 
