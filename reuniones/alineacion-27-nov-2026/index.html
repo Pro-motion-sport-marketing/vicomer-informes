@@ -271,11 +271,12 @@ nav button:hover{border-color:var(--thor)}
 <nav><button id="prev" aria-label="Lámina anterior">↑</button><button id="next" aria-label="Lámina siguiente">↓</button></nav>
 <script>
 const deck=document.getElementById('deck'),slides=[...document.querySelectorAll('.slide')],prog=document.getElementById('prog');
-function cur(){const t=deck.scrollTop;let i=0;slides.forEach((s,k)=>{if(s.offsetTop-10<=t)i=k});return i}
-function go(d){const i=Math.max(0,Math.min(slides.length-1,cur()+d));slides[i].scrollIntoView({behavior:'smooth'})}
+let idx=0,lock=0;
+function cur(){const t=deck.scrollTop+deck.clientHeight/3;let i=0;slides.forEach((s,k)=>{if(s.offsetTop<=t)i=k});return i}
+function go(d){idx=Math.max(0,Math.min(slides.length-1,idx+d));lock=Date.now();slides[idx].scrollIntoView({behavior:'smooth'});prog.style.width=((idx+1)/slides.length*100)+'%'}
 document.getElementById('next').onclick=()=>go(1);document.getElementById('prev').onclick=()=>go(-1);
 document.addEventListener('keydown',e=>{if(e.target.closest('details'))return;if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(1)}if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(-1)}});
-deck.addEventListener('scroll',()=>{prog.style.width=((cur()+1)/slides.length*100)+'%'});prog.style.width=(100/slides.length)+'%';
+deck.addEventListener('scroll',()=>{if(Date.now()-lock<900)return;idx=cur();prog.style.width=((idx+1)/slides.length*100)+'%'});prog.style.width=(100/slides.length)+'%';
 </script>
 </body>
 </html>
