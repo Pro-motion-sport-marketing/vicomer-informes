@@ -9,274 +9,342 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0c0d0f; --panel:#15171b; --line:#262a31; --txt:#f2f2f0; --mut:#a3a8b0;
-  --thor:#ffdc32; --hi:#e55b3c; --ig:#4fb3e8; --ok:#7bd88f;
-}
+:root{--bg:#0c0d0f;--panel:#15171b;--line:#262a31;--txt:#f2f2f0;--mut:#9aa0a8;--thor:#ffdc32;--hi:#e55b3c;--ig:#4fb3e8;--ok:#7bd88f}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif}
-body{overflow:hidden}
-.deck{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
-.slide{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;padding:7vh 7vw;position:relative;border-bottom:1px solid var(--line)}
-.slide .num{position:absolute;top:4vh;right:5vw;font:600 13px Inter;color:var(--mut);letter-spacing:.12em}
-.kicker{font:700 14px Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
-h1{font:800 clamp(44px,7vw,104px)/.95 "Barlow Condensed";text-transform:uppercase;letter-spacing:.01em}
-h2{font:800 clamp(34px,4.6vw,66px)/1 "Barlow Condensed";text-transform:uppercase;margin-bottom:28px;max-width:20ch}
-h3{font:700 22px/1.2 "Barlow Condensed";text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px}
-p,li{font-size:clamp(16px,1.35vw,20px);line-height:1.5;color:#dcdcd8}
-p+p{margin-top:12px}
-.lead{font-size:clamp(18px,1.7vw,25px);max-width:52ch;color:#e9e9e6}
-.mut{color:var(--mut)}
-.y{color:var(--thor)} .c{color:var(--hi)} .b{color:var(--ig)}
-.brands{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
-.pill{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 14px Inter}
+html,body{height:100%;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;overflow:hidden}
+button{font:inherit;color:inherit}
+.track{display:flex;height:100%;transition:transform .55s cubic-bezier(.7,0,.2,1)}
+.slide{flex:0 0 100vw;height:100%;overflow-y:auto;padding:8vh 7vw 13vh;display:flex;flex-direction:column;justify-content:center;position:relative}
+.slide>*{max-width:1280px;width:100%;margin-left:auto;margin-right:auto}
+.kicker{font:700 13px Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+h1{font:800 clamp(46px,7.2vw,110px)/.93 "Barlow Condensed";text-transform:uppercase}
+h2{font:800 clamp(32px,4.2vw,60px)/1 "Barlow Condensed";text-transform:uppercase;margin-bottom:24px}
+h3{font:700 clamp(19px,1.6vw,24px)/1.15 "Barlow Condensed";text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px}
+p,li{font-size:clamp(15px,1.2vw,18px);line-height:1.5;color:#d9d9d5}
+.lead{font-size:clamp(17px,1.6vw,23px);color:#ececea;max-width:56ch}
+.mut{color:var(--mut)} .y{color:var(--thor)} .c{color:var(--hi)} .b{color:var(--ig)}
+.grid{display:grid;gap:16px} .g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.tag{display:inline-block;font:700 11px Inter;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:6px;background:#23272e;color:var(--mut);margin-bottom:10px}
+.icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font:800 22px "Barlow Condensed";background:#23272e;color:var(--thor);margin-bottom:14px}
+.quote{border-left:4px solid var(--thor);padding:4px 0 4px 20px;font-size:clamp(19px,1.9vw,28px);line-height:1.35;max-width:44ch}
+.pill{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 14px Inter;display:inline-block}
 .pill.t{border-color:var(--thor);color:var(--thor)} .pill.h{border-color:var(--hi);color:var(--hi)} .pill.i{border-color:var(--ig);color:var(--ig)}
-.grid{display:grid;gap:18px}
-.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
-.card p,.card li{font-size:clamp(15px,1.15vw,18px)}
-.card ul{padding-left:18px} .card li+li{margin-top:6px}
-.big{font:800 clamp(48px,6vw,88px)/1 "Barlow Condensed"}
-.tag{display:inline-block;font:700 12px Inter;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px;background:#22262d;color:var(--mut);margin-bottom:12px}
-.quote{border-left:4px solid var(--thor);padding:6px 0 6px 22px;font-size:clamp(20px,2vw,30px);line-height:1.35;max-width:40ch;margin:10px 0 30px}
-.bars{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:end;height:300px;margin:10px 0 18px}
-.bar{display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:0}
-.seg{width:100%}
-.seg.t{background:var(--thor)} .seg.ih{background:linear-gradient(90deg,var(--ig),var(--hi))}
-.bar .lbl{font:700 15px Inter;text-align:center;margin-top:8px;color:var(--mut)}
-.bar .val{font:800 30px "Barlow Condensed";text-align:center;margin-bottom:6px}
-.legend{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--mut)}
-.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
-details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-top:16px}
-summary{cursor:pointer;font-weight:600}
-details .cols{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:12px}
-details .cols p{font-size:13px;line-height:1.45;color:var(--mut)}
-details .cols b{color:var(--txt);display:block;margin-bottom:4px}
-.q{counter-reset:q}
-.q .card{position:relative;padding-left:64px}
-.q .card::before{counter-increment:q;content:counter(q);position:absolute;left:20px;top:18px;font:800 32px "Barlow Condensed";color:var(--thor)}
-.flow{display:flex;gap:12px;align-items:stretch;flex-wrap:wrap}
-.flow .card{flex:1 1 180px}
-.arrow{align-self:center;font-size:26px;color:var(--mut)}
 .note{font-size:13px;color:var(--mut);margin-top:14px}
-nav{position:fixed;bottom:18px;right:22px;display:flex;gap:8px;z-index:5}
-nav button{background:#1c1f24;color:var(--txt);border:1px solid var(--line);border-radius:8px;width:42px;height:42px;font-size:18px;cursor:pointer}
-nav button:hover{border-color:var(--thor)}
-.prog{position:fixed;top:0;left:0;height:3px;background:var(--thor);z-index:6;width:0}
+.cover{background:radial-gradient(1200px 600px at 85% 20%,rgba(255,220,50,.10),transparent 60%),radial-gradient(900px 500px at 10% 90%,rgba(79,179,232,.08),transparent 60%)}
+.brands{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.hint{margin-top:42px;font-size:14px;color:var(--mut)}
+.key{border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-weight:700;color:var(--txt)}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch}
+.vs .mid{display:grid;place-items:center;font:800 40px "Barlow Condensed";color:var(--mut)}
+.price{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+.price:last-of-type{border-bottom:0}
+.price b{font:800 34px "Barlow Condensed"}
+.price small{font:500 14px Inter;color:var(--mut)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{background:#23272e;border-radius:999px;padding:7px 13px;font-size:14px}
+.chart{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:end;height:min(42vh,340px)}
+.col{height:100%;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;border-radius:10px;padding:6px;border:1px solid transparent;transition:.2s}
+.col:hover,.col.on{border-color:var(--line);background:var(--panel)}
+.col .v{font:800 30px "Barlow Condensed";text-align:center;margin-bottom:6px}
+.col .s{width:100%;border-radius:4px}
+.col .s.t{background:var(--thor)} .col .s.ih{background:linear-gradient(180deg,var(--ig),var(--hi));margin-bottom:3px}
+.col .m{font:700 14px Inter;text-align:center;margin-top:8px;color:var(--mut)}
+.col.on .m{color:var(--thor)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--mut);margin-top:12px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+.detail h3{margin-bottom:12px}
+.detail .blk{margin-top:12px}
+.detail .blk b{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.detail .blk span{display:inline-block;background:#23272e;border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;font-size:14px}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tab{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:9px 18px;cursor:pointer;font-weight:600}
+.tab.on[data-c="t"]{border-color:var(--thor);color:var(--thor)} .tab.on[data-c="i"]{border-color:var(--ig);color:var(--ig)} .tab.on[data-c="h"]{border-color:var(--hi);color:var(--hi)}
+.pane{display:none} .pane.on{display:grid}
+.idea{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+.idea .n{font:800 46px/1 "Barlow Condensed";opacity:.35;margin-bottom:8px}
+.flow{display:flex;gap:10px;align-items:stretch}
+.flow .card{flex:1}
+.arrow{align-self:center;font-size:24px;color:var(--mut)}
+.seg{display:inline-flex;flex-wrap:wrap;background:#101215;border:1px solid var(--line);border-radius:14px;padding:4px;margin-bottom:10px}
+.seg button{border:0;background:none;padding:8px 14px;border-radius:10px;cursor:pointer;font-weight:600;font-size:14px;color:var(--mut)}
+.seg button.on{background:var(--thor);color:#111}
+.hb{margin:14px 0}
+.hb .lab{display:flex;justify-content:space-between;gap:10px;font-size:15px;margin-bottom:6px}
+.hb .lab b{font:800 22px "Barlow Condensed";white-space:nowrap}
+.hb .track2{height:14px;background:#23272e;border-radius:99px;overflow:hidden}
+.hb .fill{height:100%;border-radius:99px;transition:width .6s}
+.big{font:800 clamp(56px,7vw,100px)/1 "Barlow Condensed"}
+.qs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 20px;cursor:pointer;position:relative;transition:.2s}
+.q:hover{border-color:#3a3f48}
+.q .qn{font:800 30px/1 "Barlow Condensed";color:var(--thor);margin-bottom:8px}
+.q .ck{position:absolute;top:16px;right:16px;width:24px;height:24px;border-radius:7px;border:2px solid var(--line);display:grid;place-items:center;font-size:14px;color:transparent}
+.q.done{border-color:var(--ok)} .q.done .ck{background:var(--ok);border-color:var(--ok);color:#0c0d0f}
+.q.done p{color:var(--mut)}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;background:linear-gradient(0deg,rgba(12,13,15,.96) 55%,rgba(12,13,15,0));z-index:10}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;flex:1}
+.dot{height:8px;width:8px;border-radius:99px;background:#3a3f48;border:0;cursor:pointer;transition:.3s}
+.dot.on{width:28px;background:var(--thor)}
+.navb{display:flex;gap:8px}
+.navb button{width:44px;height:44px;border-radius:10px;background:#1c1f24;border:1px solid var(--line);cursor:pointer;font-size:18px}
+.navb button:hover{border-color:var(--thor)}
+.count{font:700 13px Inter;color:var(--mut);min-width:64px}
+.ttl{font-size:13px;color:var(--mut);min-width:120px;text-align:right}
+.prog{position:fixed;top:0;left:0;height:3px;background:var(--thor);z-index:11;transition:width .5s}
 @media (max-width:900px){
-  body{overflow:auto} .deck{height:auto;overflow:visible;scroll-snap-type:none}
-  .slide{min-height:auto;padding:64px 16px}
-  .g2,.g3,.g4,details .cols{grid-template-columns:1fr}
-  .bars{height:220px;gap:8px} .bar .val{font-size:22px} .bar .lbl{font-size:12px}
-  nav{display:none}
+  .slide{padding:56px 16px 96px;justify-content:flex-start}
+  .g2,.g3,.g4,.qs,.vs{grid-template-columns:1fr}
+  .vs .mid{display:none}
+  .flow{flex-direction:column} .arrow{transform:rotate(90deg)}
+  .chart{height:220px;gap:6px} .col .v{font-size:22px}
+  .ttl{display:none} .bar{padding:10px 12px}
 }
-@media print{body{overflow:visible}.deck{height:auto;overflow:visible}.slide{page-break-after:always;min-height:auto}nav,.prog{display:none}}
+@media print{html,body{overflow:visible}.track{display:block;transform:none!important}.slide{height:auto;min-height:100vh;page-break-after:always}.bar,.prog{display:none}}
 </style>
 </head>
 <body>
 <div class="prog" id="prog"></div>
-<main class="deck" id="deck">
+<div class="track" id="track">
 
-<!-- 1 -->
-<section class="slide">
+<section class="slide cover" data-t="Portada">
   <div class="kicker">ViCOMER · Reunión de alineación · 27 de noviembre de 2026</div>
   <h1>Dónde estamos<br>y hacia <span class="y">dónde vamos</span></h1>
-  <p class="lead" style="margin-top:28px">Canales digitales, pauta y gestión de la información de THOR Kitchen, iGlace y HiHeat.</p>
+  <p class="lead" style="margin-top:26px">Canales digitales, pauta y gestión de la información de THOR Kitchen, iGlace y HiHeat.</p>
   <div class="brands"><span class="pill t">THOR Kitchen</span><span class="pill i">iGlace</span><span class="pill h">HiHeat</span></div>
-  <p class="note" style="margin-top:40px">Pro Motion Sport Marketing · Daniel Espinoza. Es un documento para conversar, no una propuesta cerrada.</p>
+  <p class="hint">Avanza con <span class="key">←</span> <span class="key">→</span>, deslizando o con los puntos de abajo.</p>
+  <p class="note">Pro Motion Sport Marketing · Daniel Espinoza. Es un documento para conversar, no una propuesta cerrada.</p>
 </section>
 
-<!-- 2 -->
-<section class="slide"><span class="num">02</span>
+<section class="slide" data-t="Objetivo">
   <div class="kicker">Para qué es esta reunión</div>
-  <h2>Tres cosas que quiero lograr hoy</h2>
+  <h2>Tres cosas para hoy</h2>
   <div class="grid g3">
-    <div class="card"><span class="tag">1 · Contarles</span><h3>Cómo estamos</h3><p>El ritmo real de trabajo de los últimos meses y lo que ya cambió en la forma de producir, publicar y pautar.</p></div>
-    <div class="card"><span class="tag">2 · Entender</span><h3>Su sistema</h3><p>Odoo, el espacio de Claude que comparten con el equipo y las webs, para adaptarme a cómo quieren manejar la información.</p></div>
-    <div class="card"><span class="tag">3 · Acordar</span><h3>Cómo seguimos</h3><p>Con lo que me cuenten armo una propuesta que cubra toda su visión: alcance, tiempos, herramientas y presupuesto.</p></div>
+    <div class="card"><div class="icon">1</div><h3>Contarles cómo estamos</h3><p>El ritmo real de los últimos meses y lo que ya cambió en la forma de producir, publicar y pautar.</p></div>
+    <div class="card"><div class="icon">2</div><h3>Entender su sistema</h3><p>Odoo, el espacio de Claude que comparten con el equipo y las webs, para adaptarme a su forma de manejar la información.</p></div>
+    <div class="card"><div class="icon">3</div><h3>Acordar cómo seguimos</h3><p>Con lo que me cuenten armo una propuesta con alcance, tiempos, herramientas y presupuesto.</p></div>
   </div>
 </section>
 
-<!-- 3 -->
-<section class="slide"><span class="num">03</span>
+<section class="slide" data-t="El servicio">
   <div class="kicker">El servicio hoy</div>
-  <h2>Lo que se contrató y lo que en realidad hacemos</h2>
-  <div class="grid g2">
+  <h2>Lo contratado y lo que en realidad hacemos</h2>
+  <div class="vs">
     <div class="card">
       <span class="tag">Lo contratado</span>
-      <h3>Contenido para redes y su distribución</h3>
-      <ul>
-        <li><b class="b">iGlace</b>: $410 al mes</li>
-        <li><b class="c">HiHeat</b>: $410 al mes</li>
-        <li>Incluye la producción de contenido, la publicación en redes y la gestión de la pauta.</li>
-      </ul>
+      <h3>Contenido para redes, publicación y pauta</h3>
+      <div class="price"><span class="y">THOR Kitchen</span><b>$700<small> /mes</small></b></div>
+      <div class="price"><span class="b">iGlace</span><b>$410<small> /mes</small></b></div>
+      <div class="price"><span class="c">HiHeat</span><b>$410<small> /mes</small></b></div>
     </div>
+    <div class="mid">≠</div>
     <div class="card">
       <span class="tag">Lo que pasó en la práctica</span>
       <h3>Se espera dirección creativa</h3>
-      <ul>
-        <li>Coberturas de eventos y clases, a veces varias en un mismo mes.</li>
-        <li>Estrategia de campañas con Sukasa, de lanzamientos y de pauta.</li>
-        <li>Informes, planes mensuales y orden de la información.</li>
-        <li>Muchos pedidos urgentes, que le quitaban tiempo a la dirección creativa.</li>
-      </ul>
-    </div>
-  </div>
-  <p class="quote" style="margin-top:30px">Nunca fijamos una cantidad de producciones al mes. Nunca fue un problema hacer más, pero eso nos dejó sin una regla clara.</p>
-</section>
-
-<!-- 4 -->
-<section class="slide"><span class="num">04</span>
-  <div class="kicker">El ritmo real · julio a noviembre de 2026</div>
-  <h2>No es una producción al mes</h2>
-  <div class="grid g2" style="align-items:center">
-    <div>
-      <div class="bars" aria-label="Producciones y coberturas por mes">
-        <div class="bar"><div class="val">10</div><div class="seg ih" style="height:30%"></div><div class="seg t" style="height:30%"></div><div class="lbl">Jul</div></div>
-        <div class="bar"><div class="val">8</div><div class="seg ih" style="height:18%"></div><div class="seg t" style="height:30%"></div><div class="lbl">Ago</div></div>
-        <div class="bar"><div class="val">13</div><div class="seg ih" style="height:54%"></div><div class="seg t" style="height:24%"></div><div class="lbl">Sep</div></div>
-        <div class="bar"><div class="val">8</div><div class="seg ih" style="height:24%"></div><div class="seg t" style="height:24%"></div><div class="lbl">Oct</div></div>
-        <div class="bar"><div class="val">6</div><div class="seg ih" style="height:18%"></div><div class="seg t" style="height:18%"></div><div class="lbl">Nov</div></div>
+      <div class="chips">
+        <span class="chip">Coberturas de eventos y clases</span><span class="chip">Campañas con Sukasa</span><span class="chip">Lanzamientos</span><span class="chip">Estrategia de pauta</span><span class="chip">Informes y planes mensuales</span><span class="chip">Orden de la información</span><span class="chip">Pedidos urgentes</span>
       </div>
-      <div class="legend"><span><i style="background:var(--thor)"></i>THOR Kitchen</span><span><i style="background:linear-gradient(90deg,var(--ig),var(--hi))"></i>iGlace y HiHeat</span></div>
-    </div>
-    <div>
-      <div class="big y">≈ 45</div>
-      <p class="lead">producciones y coberturas en cinco meses. Son unas nueve por mes entre las tres marcas.</p>
-      <p class="mut" style="margin-top:14px">El mes de los seis pedidos de cobertura (se hicieron cuatro o cinco) muestra el problema: nadie sabía si todavía había cupo o si eso ya era un extra.</p>
+      <p style="margin-top:14px">Los pedidos urgentes le quitaban tiempo a la dirección creativa.</p>
     </div>
   </div>
-  <details>
-    <summary>Ver el detalle por mes</summary>
-    <div class="cols">
-      <p><b>Julio</b>THOR: parrilla BBQ en Cumbe, vinera TWC24UL, mueble Scala Shopping, THOR × Pelíkano Scala, clases del chef.<br>iGlace/HiHeat: H7 tres recetas, lanzamiento H7 y H9, dispensador iGlace, IGWD, testimonio HiHeat.</p>
-      <p><b>Agosto</b>THOR: producción del 12 de agosto, chef Buman, Paulina Salas, Sukanje con Sukasa, entrevistas y evento.<br>iGlace/HiHeat: IG20 + IGMINI Día de la Madre, dispensador en uso, Sukanje.</p>
-      <p><b>Septiembre</b>THOR: clase de Henry en El Bosque, masterclass en El Jardín, Día del Socio, vineras.<br>iGlace/HiHeat: IGWD oficina, iGlace × Sukasa, IG500 Oso Polar, Feria del Café, H9, Nico IG500, Día del Socio, evento en Guayaquil, máquina retro.</p>
-      <p><b>Octubre</b>THOR: instalación TWC24UL, testimonio Nico Vidal, instalación TBC2401DI, XRD48E.<br>iGlace/HiHeat: IG120 en bar, IG-BEER, Espresso Martini en vivo en Guayaquil, H9 modos de uso.</p>
-      <p><b>Noviembre</b>THOR: panelable (Sukasa, Cuenca y cocina real), chef Henry en su cocina, golf en Costa Jama.<br>iGlace/HiHeat: tazas S7, equipos de temporada IG55/IG120/IGMAX, IG35.</p>
-    </div>
-    <p class="note">Conteo preliminar hecho con las carpetas de producción del Drive. Lo afinamos juntos.</p>
-  </details>
+  <p class="quote" style="margin-top:26px">Nunca fijamos una cantidad de producciones al mes. Nunca fue un problema hacer más, pero eso nos dejó sin una regla clara.</p>
 </section>
 
-<!-- 5 -->
-<section class="slide"><span class="num">05</span>
+<section class="slide" data-t="El ritmo real">
+  <div class="kicker">El ritmo real · julio a noviembre de 2026 · toca un mes</div>
+  <h2>No es una producción al mes: <span class="y">unas 45 en cinco meses</span></h2>
+  <div class="grid g2" style="align-items:stretch">
+    <div>
+      <div class="chart" id="chart"></div>
+      <div class="legend"><span><i style="background:var(--thor)"></i>THOR Kitchen</span><span><i style="background:linear-gradient(180deg,var(--ig),var(--hi))"></i>iGlace y HiHeat</span></div>
+    </div>
+    <div class="card detail" id="detail"></div>
+  </div>
+  <p class="note">Son unas nueve por mes entre las tres marcas. Conteo preliminar hecho con las carpetas de producción del Drive; lo afinamos juntos. En el mes de los seis pedidos de cobertura (se hicieron cuatro o cinco) nadie sabía si todavía había cupo o si ya era un extra.</p>
+</section>
+
+<section class="slide" data-t="Lo que ordenamos">
   <div class="kicker">Lo que ya ordenamos</div>
   <h2>La información ya tiene casa</h2>
   <div class="grid g4">
-    <div class="card"><h3>Calendario único</h3><p>Las tres marcas en un mismo calendario de contenido en Notion, con una ficha por pieza.</p></div>
-    <div class="card"><h3>Planes e informes</h3><p>Plan mensual por marca e informes interactivos publicados en línea, con métricas de Metricool y pauta.</p></div>
-    <div class="card"><h3>Programación</h3><p>Publicación automática desde Metricool en Instagram, Facebook y ahora TikTok.</p></div>
-    <div class="card"><h3>Pauta con criterio</h3><p>Diagnóstico de públicos y una propuesta de embudo con remarketing e indicadores por etapa para THOR.</p></div>
+    <div class="card"><div class="icon">N</div><h3>Calendario único</h3><p>Las tres marcas en un mismo calendario de contenido en Notion, con una ficha por pieza.</p></div>
+    <div class="card"><div class="icon">%</div><h3>Planes e informes</h3><p>Plan mensual por marca e informes interactivos en línea, con métricas de Metricool y pauta.</p></div>
+    <div class="card"><div class="icon">▶</div><h3>Programación</h3><p>Publicación automática desde Metricool en Instagram, Facebook y ahora TikTok.</p></div>
+    <div class="card"><div class="icon">◎</div><h3>Pauta con criterio</h3><p>Diagnóstico de públicos y embudo con remarketing e indicadores por etapa para THOR.</p></div>
   </div>
 </section>
 
-<!-- 6 -->
-<section class="slide"><span class="num">06</span>
+<section class="slide" data-t="Lo que cambió">
   <div class="kicker">Lo que cambió</div>
   <h2>El límite ya no es qué sabemos hacer</h2>
-  <p class="quote">Ahora el límite es qué queremos hacer y qué nos conviene.</p>
+  <p class="quote" style="margin-bottom:24px">Ahora el límite es qué queremos hacer y qué nos conviene.</p>
   <div class="grid g3">
-    <div class="card"><span class="tag">Esta semana · TikTok</span><p>Analizamos 155 videos de THOR, encontramos qué texto inicial funcionaba y programamos 15 videos en un día.</p></div>
-    <div class="card"><span class="tag">Esta semana · Pauta</span><p>Revisamos un año de campañas, públicos y el pixel de THOR, y dejamos lista una estrategia de públicos con remarketing.</p></div>
-    <div class="card"><span class="tag">Esta semana · Contenido</span><p>Carruseles de micro videos por equipo, el reel de la panelable y piezas con el chef Henry, de la edición a la programación.</p></div>
+    <div class="card"><span class="tag">Esta semana · TikTok</span><div class="big y">155</div><p>videos de THOR analizados para encontrar qué texto inicial funciona, y 15 programados en un día.</p></div>
+    <div class="card"><span class="tag">Esta semana · Pauta</span><div class="big y">1 año</div><p>de campañas, públicos y pixel de THOR revisado, con una estrategia de remarketing lista.</p></div>
+    <div class="card"><span class="tag">Esta semana · Contenido</span><div class="big y">+20</div><p>piezas: micro videos por equipo, el reel de la panelable y los videos con el chef Henry.</p></div>
   </div>
-  <p class="lead" style="margin-top:28px">Podemos adaptarnos casi de inmediato a cualquier pedido. Lo que hace falta es decidir juntos hacia dónde apuntar ese tiempo.</p>
+  <p class="lead" style="margin-top:22px">Podemos responder casi de inmediato a cualquier pedido. Falta decidir juntos hacia dónde apuntar ese tiempo.</p>
 </section>
 
-<!-- 7 -->
-<section class="slide"><span class="num">07</span>
+<section class="slide" data-t="TikTok global">
   <div class="kicker">THOR Kitchen · TikTok</div>
   <h2>De Ecuador a <span class="y">global</span></h2>
   <div class="flow">
-    <div class="card"><span class="tag">Ya arrancó</span><h3>Ecuador</h3><p>El TikTok llevaba cuatro meses quieto. Ya salió el primer video y hay 15 programados hasta el 15 de enero, dos por semana.</p></div>
+    <div class="card"><span class="tag" style="color:var(--ok)">● Ya arrancó</span><h3>Ecuador</h3><p>Cuatro meses sin publicar. Ya salió el primer video y hay <b>15 programados</b> hasta el 15 de enero, dos por semana.</p></div>
     <div class="arrow">→</div>
-    <div class="card"><span class="tag">El método</span><h3>Con datos</h3><p>26 de los 40 TikTok más vistos de THOR llevaban un texto inicial que nombra a Ecuador o a una ciudad. Ahora lo aplicamos a cada video.</p></div>
+    <div class="card"><span class="tag">El método</span><h3>Con datos</h3><p><b>26 de los 40</b> TikTok más vistos de THOR llevaban un texto inicial con Ecuador o una ciudad. Ahora cada video lo lleva.</p></div>
     <div class="arrow">→</div>
-    <div class="card"><span class="tag">Lo siguiente</span><h3>Colombia, Costa Rica y Panamá</h3><p>Desde Metricool se puede distribuir el mismo contenido, adaptado, en las cuentas de cada país de forma automática.</p></div>
+    <div class="card" style="border-color:var(--thor)"><span class="tag">Lo siguiente</span><h3>Colombia · Costa Rica · Panamá</h3><p>Distribución automática desde Metricool en las cuentas de cada país, con el contenido adaptado.</p></div>
   </div>
-  <p class="lead" style="margin-top:28px">Para eso solo necesito que las cuentas de Colombia, Costa Rica y Panamá estén conectadas a Metricool.</p>
+  <p class="lead" style="margin-top:24px">Solo necesito que las cuentas de Colombia, Costa Rica y Panamá estén conectadas a Metricool.</p>
 </section>
 
-<!-- 8 -->
-<section class="slide"><span class="num">08</span>
-  <div class="kicker">La web como motor</div>
+<section class="slide" data-t="La web">
+  <div class="kicker">La web como motor · elige una marca</div>
   <h2>De la pauta a algo que valga la pena</h2>
-  <p class="lead" style="margin-bottom:26px">Hoy la pauta lleva gente a redes y a la web. La web puede devolverles algo útil, aprender de cada visita y llevarlos a Sukasa.</p>
-  <div class="grid g3">
-    <div class="card"><span class="tag" style="color:var(--thor)">THOR Kitchen</span>
-      <ul><li><b>THOR Club</b> con registro y manejo de usuarios.</li><li>Recetas y guías descargables.</li><li>Un configurador: eliges un fondo de cocina, armas tu mix de equipos y lo llevas a cotizar en Sukasa.</li></ul></div>
-    <div class="card"><span class="tag" style="color:var(--ig)">iGlace</span>
-      <ul><li>Una guía de hielo para eventos y negocios.</li><li>Un "¿qué máquina necesito?" según el uso.</li><li>Material para Horeca.</li></ul></div>
-    <div class="card"><span class="tag" style="color:var(--hi)">HiHeat</span>
-      <ul><li>Recetas de café y de horno.</li><li>"¿Cuál es tu máquina ideal?" como herramienta en la web.</li><li>Entregables para quien comenta en redes.</li></ul></div>
+  <div class="tabs">
+    <button class="tab on" data-c="t" data-p="pt">THOR Kitchen</button>
+    <button class="tab" data-c="i" data-p="pi">iGlace</button>
+    <button class="tab" data-c="h" data-p="ph">HiHeat</button>
   </div>
-  <p class="note">Son ideas para conversar. Cada una se conecta con la pauta y con el remarketing.</p>
+  <div class="pane g3 grid on" id="pt">
+    <div class="idea"><div class="n y">01</div><h3>THOR Club</h3><p>Registro y manejo de usuarios: beneficios, clases y contenido exclusivo.</p></div>
+    <div class="idea"><div class="n y">02</div><h3>Recetas y guías</h3><p>Material descargable para quien comenta o se registra.</p></div>
+    <div class="idea"><div class="n y">03</div><h3>Configurador de cocina</h3><p>Eliges un fondo de cocina, armas tu mix de equipos y lo llevas a cotizar en Sukasa.</p></div>
+  </div>
+  <div class="pane g3 grid" id="pi">
+    <div class="idea"><div class="n b">01</div><h3>Guía de hielo</h3><p>Cuánto hielo necesitas para un evento o un negocio.</p></div>
+    <div class="idea"><div class="n b">02</div><h3>¿Qué máquina necesito?</h3><p>Una herramienta que recomienda el equipo según el uso.</p></div>
+    <div class="idea"><div class="n b">03</div><h3>Material Horeca</h3><p>Fichas y casos para restaurantes, hoteles y cafeterías.</p></div>
+  </div>
+  <div class="pane g3 grid" id="ph">
+    <div class="idea"><div class="n c">01</div><h3>Recetas</h3><p>De café y de horno, con los equipos HiHeat.</p></div>
+    <div class="idea"><div class="n c">02</div><h3>Tu máquina ideal</h3><p>"¿Cuál es tu máquina ideal?" convertido en herramienta de la web.</p></div>
+    <div class="idea"><div class="n c">03</div><h3>Entregables</h3><p>Para quien comenta en redes o participa en actividades.</p></div>
+  </div>
+  <p class="note">Hoy la pauta lleva gente a redes y a la web. Cada idea le devuelve algo útil a esa persona, aprende de la visita y se conecta con el remarketing. Son ideas para conversar.</p>
 </section>
 
-<!-- 9 -->
-<section class="slide"><span class="num">09</span>
+<section class="slide" data-t="Gestión centralizada">
   <div class="kicker">Gestión centralizada</div>
   <h2>Un solo lugar para ver todo</h2>
-  <div class="grid g2">
+  <div class="flow">
+    <div class="card"><span class="tag">Fuentes</span><h3>Lo que ya existe</h3><div class="chips"><span class="chip">Odoo</span><span class="chip">Meta Ads</span><span class="chip">Metricool</span><span class="chip">Webs</span><span class="chip">Notion</span></div></div>
+    <div class="arrow">→</div>
+    <div class="card" style="border-color:var(--thor)"><span class="tag">Canal interno</span><h3 class="y">Claude</h3><p>Conectado a Odoo, desde donde se gestionan la web y la pauta.</p></div>
+    <div class="arrow">→</div>
+    <div class="card"><span class="tag">Lo que ven todos</span><h3>Tablero</h3><div class="chips"><span class="chip">Cronograma</span><span class="chip">Resultados</span><span class="chip">Informes</span><span class="chip">Campañas activas</span><span class="chip">Presupuesto gastado</span></div></div>
+  </div>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card"><h3>Camino A</h3><p>Me crean un perfil dentro del espacio de Claude (Cowork) que comparten con su equipo.</p></div>
+    <div class="card"><h3>Camino B</h3><p>Vinculo mi perfil a su espacio. Cualquiera de los dos sirve si la información queda a la vista de todos.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-t="Pauta con Odoo">
+  <div class="kicker">Pauta conectada a Odoo · un ejemplo real</div>
+  <h2>Medir la calidad del chat, no solo su precio</h2>
+  <div class="grid g2" style="align-items:start">
     <div class="card">
-      <h3>Lo que me gustaría construir</h3>
-      <ul>
-        <li>Un canal interno de Claude conectado a su Odoo, desde donde gestionar web y pauta.</li>
-        <li>Un tablero con el cronograma de contenido, los resultados, los informes, las campañas activas y el presupuesto gastado.</li>
-        <li>Automatizaciones para que la información llegue sola, sin pedirla.</li>
-      </ul>
+      <p class="mut" style="margin-bottom:10px">Prueba de remarketing de iGlace Horeca · 25 al 27 de noviembre</p>
+      <div class="seg" id="seg"><button class="on" data-k="chat">Costo por chat</button><button data-k="q">Costo por chat de 3+ mensajes</button><button data-k="n">Cantidad de chats</button></div>
+      <div id="hbars"></div>
+      <p class="note">Datos de Meta Ads después de dos días. La muestra todavía es chica.</p>
     </div>
-    <div class="card">
-      <h3>Dos caminos posibles</h3>
-      <ul>
-        <li><b>A.</b> Que me creen un perfil dentro del espacio de Claude (Cowork) que comparten con su equipo.</li>
-        <li><b>B.</b> Vincular mi perfil a su espacio.</li>
-      </ul>
-      <p class="mut" style="margin-top:12px">Cualquiera de los dos sirve. Lo importante es que la información de pauta, web y contenido quede a la vista de todos.</p>
+    <div>
+      <div class="card"><h3>Lo que no sabemos hoy</h3><p>El frío trae chats mucho más baratos. El remarketing trae menos y más caros, pero puede ser gente más preparada, que no solo pregunta el precio sino que empieza a comprar. <b>Hoy eso solo lo sabe quien atiende el WhatsApp</b>, y nos enteramos a fin de mes.</p></div>
+      <div class="card" style="margin-top:14px;border-color:var(--thor)"><h3 class="y">Con Odoo y Claude conectados</h3><p>Cada chat queda en Odoo con la campaña de la que vino, y Claude lo lee a medida que llega. Vemos quién pregunta solo el precio, quién pide cotización y quién avanza en la compra, y <b>cada semana</b> movemos el presupuesto hacia el público que trae mejores clientes.</p></div>
     </div>
   </div>
 </section>
 
-<!-- 10 -->
-<section class="slide q"><span class="num">10</span>
-  <div class="kicker">Lo que necesito entender</div>
+<section class="slide" data-t="Preguntas">
+  <div class="kicker">Lo que necesito entender · toca una para marcarla como resuelta</div>
   <h2>Preguntas para ustedes</h2>
-  <div class="grid g2">
-    <div class="card"><h3>Odoo</h3><p>¿Qué módulos usan, qué información vive ahí (ventas por tienda, inventario, clientes) y cómo me conecto?</p></div>
-    <div class="card"><h3>Claude</h3><p>¿Cómo me integro a su espacio compartido y qué quieren que se gestione desde ahí?</p></div>
-    <div class="card"><h3>Webs</h3><p>¿El hosting es de Odoo o de otro proveedor? ¿Quién administra cada dominio?</p></div>
-    <div class="card"><h3>iGlace y HiHeat</h3><p>Con todos los equipos nuevos de HiHeat, ¿siguen en una sola web o cada marca tendrá la suya? ¿Habrá interactividad?</p></div>
-    <div class="card"><h3>Activos de valor</h3><p>¿Quién idea las guías, herramientas y entregables? ¿Les gustaría que lo lidere yo?</p></div>
-    <div class="card"><h3>Coberturas y pauta</h3><p>¿Cuántas coberturas al mes esperan y cómo se piden? ¿Quién aprueba el presupuesto de pauta?</p></div>
+  <div class="qs">
+    <div class="q"><span class="ck">✓</span><div class="qn">01</div><h3>Odoo</h3><p>¿Qué información vive ahí (chats de WhatsApp, ventas por tienda, clientes)? ¿Cada chat queda con su campaña de origen? ¿Cómo me conecto?</p></div>
+    <div class="q"><span class="ck">✓</span><div class="qn">02</div><h3>Claude</h3><p>¿Cómo me integro a su espacio compartido y qué quieren gestionar desde ahí?</p></div>
+    <div class="q"><span class="ck">✓</span><div class="qn">03</div><h3>Webs</h3><p>¿El hosting es de Odoo o de otro proveedor? ¿Quién administra cada dominio?</p></div>
+    <div class="q"><span class="ck">✓</span><div class="qn">04</div><h3>iGlace y HiHeat</h3><p>Con los equipos nuevos de HiHeat, ¿siguen en una sola web o cada marca tendrá la suya? ¿Habrá interactividad?</p></div>
+    <div class="q"><span class="ck">✓</span><div class="qn">05</div><h3>Activos de valor</h3><p>¿Quién idea las guías, herramientas y entregables? ¿Les gustaría que lo lidere yo?</p></div>
+    <div class="q"><span class="ck">✓</span><div class="qn">06</div><h3>Coberturas y pauta</h3><p>¿Cuántas coberturas al mes esperan y cómo se piden? ¿Quién aprueba el presupuesto de pauta?</p></div>
   </div>
 </section>
 
-<!-- 11 -->
-<section class="slide"><span class="num">11</span>
+<section class="slide" data-t="Cómo seguimos">
   <div class="kicker">Cómo seguimos</div>
   <h2>Del diálogo a una propuesta que lo cubra todo</h2>
   <div class="flow">
-    <div class="card"><span class="tag">Hoy</span><h3>Escucharlos</h3><p>Su visión para las webs, Odoo, Claude y la pauta de las tres marcas.</p></div>
+    <div class="card"><div class="icon">1</div><span class="tag">Hoy</span><h3>Escucharlos</h3><p>Su visión para las webs, Odoo, Claude y la pauta de las tres marcas.</p></div>
     <div class="arrow">→</div>
-    <div class="card"><span class="tag">Después</span><h3>Aterrizar</h3><p>Armo una propuesta con alcance, cupo de producciones y coberturas, herramientas, tiempos y presupuesto.</p></div>
+    <div class="card"><div class="icon">2</div><span class="tag">Después</span><h3>Aterrizar</h3><p>Propuesta con alcance, cupo de producciones y coberturas, herramientas, tiempos y presupuesto.</p></div>
     <div class="arrow">→</div>
-    <div class="card"><span class="tag">Luego</span><h3>Ajustar juntos</h3><p>La revisamos y la afinamos antes de cerrarla.</p></div>
+    <div class="card"><div class="icon">3</div><span class="tag">Luego</span><h3>Ajustar juntos</h3><p>La revisamos y la afinamos antes de cerrarla.</p></div>
   </div>
-  <p class="lead" style="margin-top:30px">Todo esto pide ideación y tiempo, aunque la inteligencia artificial ayude. Quiero que la propuesta refleje ese nuevo alcance.</p>
-  <p class="note" style="margin-top:30px">Pro Motion Sport Marketing · Daniel Espinoza</p>
+  <p class="lead" style="margin-top:26px">Todo esto pide ideación y tiempo, aunque la inteligencia artificial ayude. Quiero que la propuesta refleje ese nuevo alcance.</p>
+  <p class="note" style="margin-top:26px">Pro Motion Sport Marketing · Daniel Espinoza</p>
 </section>
 
-</main>
-<nav><button id="prev" aria-label="Lámina anterior">↑</button><button id="next" aria-label="Lámina siguiente">↓</button></nav>
+</div>
+
+<div class="bar">
+  <span class="count" id="count">01 / 12</span>
+  <div class="dots" id="dots"></div>
+  <span class="ttl" id="ttl"></span>
+  <div class="navb"><button id="prev" aria-label="Anterior">←</button><button id="next" aria-label="Siguiente">→</button></div>
+</div>
+
 <script>
-const deck=document.getElementById('deck'),slides=[...document.querySelectorAll('.slide')],prog=document.getElementById('prog');
-let idx=0,lock=0;
-function cur(){const t=deck.scrollTop+deck.clientHeight/3;let i=0;slides.forEach((s,k)=>{if(s.offsetTop<=t)i=k});return i}
-function go(d){idx=Math.max(0,Math.min(slides.length-1,idx+d));lock=Date.now();slides[idx].scrollIntoView({behavior:'smooth'});prog.style.width=((idx+1)/slides.length*100)+'%'}
-document.getElementById('next').onclick=()=>go(1);document.getElementById('prev').onclick=()=>go(-1);
-document.addEventListener('keydown',e=>{if(e.target.closest('details'))return;if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(1)}if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(-1)}});
-deck.addEventListener('scroll',()=>{if(Date.now()-lock<900)return;idx=cur();prog.style.width=((idx+1)/slides.length*100)+'%'});prog.style.width=(100/slides.length)+'%';
+const track=document.getElementById('track'),slides=[...document.querySelectorAll('.slide')],N=slides.length;
+const dots=document.getElementById('dots'),count=document.getElementById('count'),ttl=document.getElementById('ttl'),prog=document.getElementById('prog');
+let i=0;
+slides.forEach((s,k)=>{const d=document.createElement('button');d.className='dot';d.title=s.dataset.t;d.setAttribute('aria-label',s.dataset.t);d.onclick=()=>go(k);dots.appendChild(d)});
+function go(k){i=Math.max(0,Math.min(N-1,k));track.style.transform='translateX(-'+(i*100)+'vw)';
+  [...dots.children].forEach((d,n)=>d.classList.toggle('on',n===i));
+  count.textContent=String(i+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');ttl.textContent=slides[i].dataset.t;prog.style.width=((i+1)/N*100)+'%';
+  slides[i].scrollTop=0;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('next').onclick=()=>go(i+1);document.getElementById('prev').onclick=()=>go(i-1);
+document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(i-1)}if(e.key==='Home')go(0);if(e.key==='End')go(N-1)});
+let x0=null,y0=null;
+document.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+document.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.3)go(i+(dx<0?1:-1));x0=null},{passive:true});
+window.addEventListener('resize',()=>{track.style.transition='none';go(i);requestAnimationFrame(()=>track.style.transition='')});
+
+const M=[
+ {m:'Jul',t:['Parrilla BBQ en Cumbe','Vinera TWC24UL','Mueble Scala Shopping','THOR × Pelíkano en Scala','Clases del chef'],ih:['H7 tres recetas','Lanzamiento H7 y H9','Dispensador iGlace','IGWD','Testimonio HiHeat']},
+ {m:'Ago',t:['Producción del 12 de agosto','Chef Buman','Paulina Salas','Sukanje con Sukasa','Entrevistas y evento'],ih:['IG20 + IGMINI Día de la Madre','Dispensador en uso','Sukanje']},
+ {m:'Sep',t:['Clase de Henry en El Bosque','Masterclass en El Jardín','Día del Socio','Vineras'],ih:['IGWD oficina','iGlace × Sukasa','IG500 Oso Polar','Feria del Café','H9','Nico IG500','Día del Socio','Evento en Guayaquil','Máquina retro']},
+ {m:'Oct',t:['Instalación TWC24UL','Testimonio Nico Vidal','Instalación TBC2401DI','XRD48E'],ih:['IG120 en bar','IG-BEER','Espresso Martini en vivo','H9 modos de uso']},
+ {m:'Nov',t:['Panelable: Sukasa, Cuenca y cocina real','Chef Henry en su cocina','Golf en Costa Jama'],ih:['Tazas S7','Equipos de temporada IG55/IG120/IGMAX','IG35']}
+];
+const full={Jul:'Julio',Ago:'Agosto',Sep:'Septiembre',Oct:'Octubre',Nov:'Noviembre'};
+const max=Math.max(...M.map(r=>r.t.length+r.ih.length)),chart=document.getElementById('chart'),det=document.getElementById('detail');
+M.forEach((r,k)=>{const tot=r.t.length+r.ih.length,c=document.createElement('div');c.className='col';
+ c.innerHTML='<div class="v">'+tot+'</div><div class="s ih" style="height:'+(r.ih.length/max*78)+'%"></div><div class="s t" style="height:'+(r.t.length/max*78)+'%"></div><div class="m">'+r.m+'</div>';
+ c.onclick=()=>show(k);chart.appendChild(c)});
+function show(k){[...chart.children].forEach((c,n)=>c.classList.toggle('on',n===k));const r=M[k];
+ det.innerHTML='<h3>'+full[r.m]+' · '+(r.t.length+r.ih.length)+' producciones</h3>'+
+ '<div class="blk"><b class="y">THOR Kitchen · '+r.t.length+'</b>'+r.t.map(x=>'<span>'+x+'</span>').join('')+'</div>'+
+ '<div class="blk"><b class="b">iGlace y HiHeat · '+r.ih.length+'</b>'+r.ih.map(x=>'<span>'+x+'</span>').join('')+'</div>'}
+show(2);
+
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('on',p.id===b.dataset.p))});
+
+const R=[
+ {n:'Remarketing · interactuaron con FB, IG o web',chat:0.68,q:4.08,c:12,col:'var(--ig)'},
+ {n:'Remarketing · vieron los videos Horeca',chat:1.63,q:9.80,c:6,col:'var(--hi)'},
+ {n:'Horeca en frío',chat:0.08,q:0.24,c:103,col:'var(--thor)'}
+];
+const hb=document.getElementById('hbars');
+function bars(k){const vals=R.map(r=>k==='n'?r.c:r[k]),mx=Math.max(...vals);
+ hb.innerHTML=R.map((r,n)=>{const v=vals[n],lbl=k==='n'?v:'$'+v.toFixed(2).replace('.',',');return '<div class="hb"><div class="lab"><span>'+r.n+'</span><b>'+lbl+'</b></div><div class="track2"><div class="fill" style="width:0;background:'+r.col+'" data-w="'+Math.max(2,v/mx*100)+'"></div></div></div>'}).join('');
+ requestAnimationFrame(()=>requestAnimationFrame(()=>hb.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%')))}
+document.querySelectorAll('#seg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#seg button').forEach(x=>x.classList.toggle('on',x===b));bars(b.dataset.k)});
+bars('chat');
+
+document.querySelectorAll('.q').forEach(q=>q.onclick=()=>q.classList.toggle('done'));
+
+go(Math.max(0,Math.min(N-1,(parseInt(location.hash.slice(1))||1)-1)));
 </script>
 </body>
 </html>
