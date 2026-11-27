@@ -30,6 +30,19 @@ p,li{font-size:clamp(15px,1.2vw,18px);line-height:1.5;color:#d9d9d5}
 .quote{border-left:4px solid var(--thor);padding:4px 0 4px 20px;font-size:clamp(19px,1.9vw,28px);line-height:1.35;max-width:44ch}
 .pill{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 14px Inter;display:inline-block}
 .pill.t{border-color:var(--thor);color:var(--thor)} .pill.h{border-color:var(--hi);color:var(--hi)} .pill.i{border-color:var(--ig);color:var(--ig)}
+.win{background:#101215;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.win .top{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line);background:#14171b}
+.win .top i{width:10px;height:10px;border-radius:50%;background:#3a3f48;display:inline-block}
+.win .url{margin-left:10px;font-size:12px;color:var(--mut);background:#0c0d0f;border-radius:6px;padding:4px 10px;flex:1}
+.win .wt{display:flex;gap:4px;padding:10px 12px 0;flex-wrap:wrap}
+.win .wt button{border:0;background:none;padding:7px 10px;border-radius:8px 8px 0 0;font-size:13px;font-weight:600;color:var(--mut);cursor:pointer}
+.win .wt button.on{background:var(--panel);color:var(--thor)}
+.win .wb{background:var(--panel);margin:0 12px 12px;border-radius:0 8px 8px 8px;padding:12px;min-height:190px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:9px 4px;border-bottom:1px solid var(--line);font-size:14px}
+.row:last-child{border-bottom:0}
+.st{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;white-space:nowrap;align-self:center}
+.st.g{background:rgba(123,216,143,.15);color:var(--ok)} .st.a{background:rgba(255,220,50,.15);color:var(--thor)} .st.r{background:rgba(229,91,60,.15);color:var(--hi)} .st.v{background:rgba(79,179,232,.15);color:var(--ig)}
+.btn{display:inline-block;background:var(--thor);color:#111;font-weight:700;border-radius:10px;padding:12px 18px;text-decoration:none;margin-top:16px}
 .note{font-size:13px;color:var(--mut);margin-top:14px}
 .cover{background:radial-gradient(1200px 600px at 85% 20%,rgba(255,220,50,.10),transparent 60%),radial-gradient(900px 500px at 10% 90%,rgba(79,179,232,.08),transparent 60%)}
 .brands{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
@@ -210,6 +223,25 @@ p,li{font-size:clamp(15px,1.2vw,18px);line-height:1.5;color:#d9d9d5}
   <p class="lead" style="margin-top:22px">Podemos responder casi de inmediato a cualquier pedido. Falta decidir juntos hacia dónde apuntar ese tiempo.</p>
 </section>
 
+<section class="slide" data-t="Portal de marcas">
+  <div class="kicker">Un ejemplo que ya estamos construyendo</div>
+  <h2>Pro Content View: <span class="y">cada marca ve lo suyo</span></h2>
+  <div class="grid g2" style="align-items:center">
+    <div>
+      <p class="lead">Un espacio donde cada marca entra con su usuario y ve, en vivo, todo lo que hacemos para ella.</p>
+      <div class="chips" style="margin-top:16px"><span class="chip">📅 Cronograma de contenido</span><span class="chip">🎥 Cronograma de producciones</span><span class="chip">⚠️ Puntos a resolver</span><span class="chip">✅ Decisiones registradas</span><span class="chip">📈 Pauta en tiempo real</span></div>
+      <p style="margin-top:16px">Hoy se alimenta de Notion. El siguiente paso es llevar este mismo sistema a Odoo, para que viva dentro de su sistema y todo el equipo tenga la información a la vista.</p>
+      <a class="btn" href="https://contenido.promotionec.com" target="_blank" rel="noopener">Abrir el portal ↗</a>
+    </div>
+    <div class="win">
+      <div class="top"><i></i><i></i><i></i><span class="url">contenido.promotionec.com · ViCOMER</span></div>
+      <div class="wt" id="wt"><button class="on" data-w="cal">📅 Calendario</button><button data-w="pro">🎥 Producción</button><button data-w="pau">📈 Pauta</button><button data-w="pen">⚠️ Por resolver</button></div>
+      <div class="wb" id="wb"></div>
+    </div>
+  </div>
+  <p class="note">La ventana de la derecha es una vista ilustrativa con datos de estas semanas. Toca las pestañas.</p>
+</section>
+
 <section class="slide" data-t="Preguntas">
   <div class="kicker">Lo que necesito entender · toca una para marcarla como resuelta</div>
   <h2>Preguntas para ustedes</h2>
@@ -286,7 +318,7 @@ p,li{font-size:clamp(15px,1.2vw,18px);line-height:1.5;color:#d9d9d5}
 </div>
 
 <div class="bar">
-  <span class="count" id="count">01 / 12</span>
+  <span class="count" id="count">01 / 13</span>
   <div class="dots" id="dots"></div>
   <span class="ttl" id="ttl"></span>
   <div class="navb"><button id="prev" aria-label="Anterior">←</button><button id="next" aria-label="Siguiente">→</button></div>
@@ -340,6 +372,16 @@ function bars(k){const vals=R.map(r=>k==='n'?r.c:r[k]),mx=Math.max(...vals);
 document.querySelectorAll('#seg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#seg button').forEach(x=>x.classList.toggle('on',x===b));bars(b.dataset.k)});
 bars('chat');
 
+
+const W={
+ cal:[['2 dic · TikTok · Parrillada en Cuenca','Programado','g'],['4 dic · TikTok · Sukanje','Programado','g'],['9 dic · TikTok · Centro de bebidas','Texto por aprobar','a'],['11 dic · TikTok · Clases del chef Henry','Programado','g'],['Diciembre · Carrusel lanzamientos 2','En diseño','v']],
+ pro:[['17 nov · Chef Henry en su cocina','Completada','g'],['25 nov · Golf en Costa Jama','En edición','v'],['Dic · Clases nov-dic en Sukasa Quito','Agendada','a']],
+ pau:[['THOR · Reconocimiento panelable · $10/día','Activa','g'],['iGlace · Remarketing Horeca · $10/día','Activa','g'],['iGlace · Horeca en frío · $0,08 por chat','Activa','g'],['THOR · Públicos de remarketing R1–R7','Por aprobar','a']],
+ pen:[['Original de 5 videos de TikTok (pedir al editor)','Pendiente','r'],['Textos emergentes de los videos 4 al 15','Por aprobar','a'],['Separar el pixel de THOR Ecuador y Colombia','Pendiente','r']]
+};
+const wb=document.getElementById('wb');
+function win(k){wb.innerHTML=W[k].map(r=>'<div class="row"><span>'+r[0]+'</span><span class="st '+r[2]+'">'+r[1]+'</span></div>').join('');document.querySelectorAll('#wt button').forEach(b=>b.classList.toggle('on',b.dataset.w===k))}
+document.querySelectorAll('#wt button').forEach(b=>b.onclick=()=>win(b.dataset.w));win('cal');
 document.querySelectorAll('.q').forEach(q=>q.onclick=()=>q.classList.toggle('done'));
 
 go(Math.max(0,Math.min(N-1,(parseInt(location.hash.slice(1))||1)-1)));
